@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Notepad 4.10">
+<meta name="keywords" content="pxdx, pxdxx, homepage, swift, electron, python, macos, chrome extensions">
+<title>~ pxdx's Homepage ~ Добро пожаловать!!!</title>
+<style>
+
+html {
+  background: #000033;
+}
+body {
+  margin: 0;
+  padding: 8px 8px 24px;
+  color: #ffffff;
+  font: 16px/1.35 "Times New Roman", Times, serif;
+  background: #000033 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' shape-rendering='crispEdges'><rect width='160' height='160' fill='%23000033'/><g fill='%23ffffff'><rect x='12' y='20' width='2' height='2'/><rect x='70' y='8' width='1' height='1'/><rect x='131' y='34' width='2' height='2'/><rect x='38' y='71' width='1' height='1'/><rect x='104' y='90' width='2' height='2'/><rect x='150' y='128' width='1' height='1'/><rect x='58' y='140' width='2' height='2'/><rect x='22' y='118' width='1' height='1'/><rect x='88' y='52' width='1' height='1'/></g><g fill='%23ffff66'><rect x='47' y='36' width='2' height='2'/><rect x='120' y='150' width='1' height='1'/><rect x='6' y='88' width='1' height='1'/></g><g fill='%2366ffff'><rect x='96' y='126' width='2' height='2'/><rect x='140' y='76' width='1' height='1'/><rect x='30' y='150' width='1' height='1'/></g></svg>");
+}
+a { color: #66ccff; }
+a:visited { color: #ff99ff; }
+a:hover { color: #ffff00; background: #0000aa; }
+a:active { color: #ff0000; }
+img { border: 0; }
+.blink { animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+/* ---------- каркас ---------- */
+#wrap { max-width: 780px; margin: 0 auto; }
+.ticker {
+  background: #000; color: #00ff00; border: 2px inset #808080;
+  font: bold 14px "Courier New", Courier, monospace; padding: 3px 0;
+}
+.head { text-align: center; padding: 12px 0 4px; }
+.wordart {
+  display: inline-block;
+  font: 900 54px/1.05 Impact, "Arial Black", Haettenschweiler, sans-serif;
+  letter-spacing: 1px;
+  background: linear-gradient(180deg, #ffffff 0%, #ffff00 35%, #ff8800 65%, #ff0000 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(3px 3px 0 #000080) drop-shadow(-1px -1px 0 #000);
+  transform: rotate(-2deg);
+}
+.sub {
+  font: italic bold 18px "Comic Sans MS", "Comic Sans", cursive;
+  color: #ffff66; margin: 8px 0 0;
+}
+.rainbow {
+  height: 6px; margin: 10px 0;
+  background: linear-gradient(90deg, #f00, #f80, #ff0, #0f0, #0ff, #00f, #f0f, #f00, #f80, #ff0, #0f0, #0ff, #00f, #f0f);
+  background-size: 200% 100%;
+  animation: rb 2s steps(14) infinite;
+}
+@keyframes rb { to { background-position: -100% 0; } }
+.uc {
+  margin: 8px auto; max-width: 460px; text-align: center; color: #000;
+  font: bold 14px Arial, Helvetica, sans-serif; letter-spacing: 1px;
+  border: 2px solid #000; background: #ffdd00;
+}
+.uc::before, .uc::after {
+  content: ""; display: block; height: 10px;
+  background: repeating-linear-gradient(45deg, #ffdd00 0 10px, #111 10px 20px);
+  background-size: 28.3px 28.3px;
+  animation: uc .6s steps(6) infinite;
+}
+.uc div { padding: 5px 8px; }
+@keyframes uc { to { background-position: 28.3px 0; } }
+
+table.layout { width: 100%; border-collapse: separate; border-spacing: 6px; }
+table.layout > tbody > tr > td { vertical-align: top; }
+td.side { width: 150px; }
+td.main { min-width: 0; }
+
+/* ---------- боковое меню ---------- */
+.box {
+  background: #000066; border: 3px ridge #9999ff; padding: 6px; margin-bottom: 8px;
+}
+.box h3 {
+  margin: -6px -6px 6px; padding: 2px 6px; color: #fff;
+  font: bold 13px Arial, Helvetica, sans-serif;
+  background: linear-gradient(90deg, #000080, #1084d0);
+}
+.btn, .btn:visited {
+  display: block; margin: 4px 0; padding: 4px 6px; text-align: center;
+  font: bold 13px Arial, Helvetica, sans-serif; text-decoration: none;
+  color: #000; background: #c0c0c0; border: 2px outset #fff;
+}
+.btn:hover { background: #000080; color: #ffff00; }
+.btn:active { border-style: inset; }
+.small { font: 12px/1.3 Verdana, Geneva, sans-serif; }
+.center { text-align: center; }
+
+
+.win { background: #000066; border: 3px ridge #9999ff; margin-bottom: 10px; }
+.win > h2 {
+  margin: 0; padding: 3px 6px; color: #fff;
+  font: bold 16px "Comic Sans MS", "Comic Sans", cursive;
+  background: linear-gradient(90deg, #000080, #1084d0);
+}
+.win > .in { padding: 8px 10px; }
+.win p { margin: 0 0 8px; }
+.win ul { margin: 0 0 8px; padding-left: 22px; }
+.win li { margin-bottom: 3px; }
+.hi { color: #ffff00; }
+.red { color: #ff3333; font-weight: bold; }
+.avatar {
+  float: left; margin: 2px 12px 6px 0; width: 120px; height: 120px;
+  border: 4px ridge #c0c0c0; background: #000; object-fit: cover;
+}
+.clear { clear: both; }
+
+table.old { width: 100%; border-collapse: collapse; font: 14px/1.3 Verdana, Geneva, sans-serif; }
+table.old th, table.old td { border: 1px solid #9999ff; padding: 4px 6px; text-align: left; vertical-align: top; }
+table.old th { background: #000099; color: #ffff66; }
+table.old tr:nth-child(even) td { background: #00004d; }
+.tag {
+  display: inline-block; font: bold 11px "Courier New", Courier, monospace;
+  background: #c0c0c0; color: #000; border: 1px outset #fff; padding: 0 4px;
+}
+
+
+form.gb label { display: block; font: bold 13px Verdana, sans-serif; margin: 6px 0 2px; }
+form.gb input, form.gb textarea {
+  width: 100%; box-sizing: border-box; padding: 3px 4px;
+  font: 14px "Courier New", Courier, monospace; color: #000; background: #fff;
+  border: 2px inset #808080; border-radius: 0;
+}
+form.gb button {
+  margin: 8px 6px 0 0; padding: 3px 14px; cursor: pointer;
+  font: bold 13px Arial, Helvetica, sans-serif; color: #000;
+  background: #c0c0c0; border: 2px outset #fff; border-radius: 0;
+}
+form.gb button:active { border-style: inset; }
+.entry { border: 1px dashed #9999ff; padding: 5px 8px; margin: 8px 0 0; font: 13px/1.35 Verdana, Geneva, sans-serif; background: #00004d; }
+.entry .who { color: #ffff66; font-weight: bold; }
+.entry .when { color: #99ccff; font-size: 11px; }
+.entry .txt { margin-top: 3px; white-space: pre-wrap; word-wrap: break-word; }
+
+
+.counter { font: bold 20px "Courier New", Courier, monospace; }
+.counter span {
+  display: inline-block; min-width: 16px; padding: 1px 2px; margin: 0 1px;
+  color: #00ff00; background: #000; border: 2px inset #808080; text-align: center;
+}
+.b88 {
+  display: inline-block; width: 88px; height: 31px; margin: 3px 2px; overflow: hidden; vertical-align: middle;
+  font: bold 10px/1.05 Arial, Helvetica, sans-serif; text-align: center; text-decoration: none;
+  border: 1px solid #fff; box-sizing: border-box; padding-top: 3px;
+}
+.b88 em { display: block; font: normal 8px/1 Arial, sans-serif; }
+.b88, .b88:visited, .b88:hover { text-decoration: none; }
+.b1 { background: #000; color: #0f0; border-color: #0f0; font-family: "Courier New", monospace; }
+.b2 { background: linear-gradient(#3366cc, #001a66); color: #fff; }
+.b3 { background: #c0c0c0; color: #000; border: 2px outset #fff; }
+.b4 { background: linear-gradient(#ffcc00, #ff6600); color: #000; }
+.b5 { background: linear-gradient(#ff3366, #660022); color: #fff; }
+.b88:hover { filter: brightness(1.25); background-color: inherit; }
+
+.midi {
+  font: bold 12px Arial, Helvetica, sans-serif; cursor: pointer; padding: 3px 8px;
+  color: #000; background: #c0c0c0; border: 2px outset #fff; border-radius: 0;
+}
+.midi:active { border-style: inset; }
+.foot { text-align: center; font: 12px/1.5 Verdana, Geneva, sans-serif; color: #99ccff; }
+
+/* ---------- искры курсора ---------- */
+.spark {
+  position: fixed; z-index: 99; pointer-events: none; font: bold 14px "Courier New", monospace;
+  animation: fall .8s linear forwards;
+}
+@keyframes fall { to { transform: translateY(26px); opacity: 0; } }
+
+@media (max-width: 640px) {
+  .wordart { font-size: 38px; }
+  table.layout, table.layout > tbody, table.layout > tbody > tr, table.layout > tbody > tr > td { display: block; width: auto; }
+  td.side { width: auto; }
+  .nav { display: flex; flex-wrap: wrap; gap: 0 6px; }
+  .nav .btn { flex: 1 1 40%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blink, .rainbow, .uc::before, .uc::after { animation: none; }
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+
+<div class="ticker">
+  <marquee id="tick" scrollamount="5">*** ДОБРО ПОЖАЛОВАТЬ НА МОЮ СТРАНИЧКУ *** ПОДПИШИСЬ В ГОСТЕВОЙ КНИГЕ *** ОБНОВЛЕНО 19.09.2026 *** НЕ ЗАБУДЬ ДОБАВИТЬ В ЗАКЛАДКИ (Ctrl+D) ***</marquee>
+</div>
+
+<div class="head">
+  <div class="wordart">~ pxdx's Homepage ~</div>
+  <p class="sub">Софт, сайты и всякое такое &mdash; всё своими руками!</p>
+</div>
+
+<div class="rainbow"></div>
+<div class="uc"><div>UNDER CONSTRUCTION<br><span style="font-weight:normal;letter-spacing:0">страничка вечно в разработке :)</span></div></div>
+
+<table class="layout" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+
+<!-- ============ ЛЕВАЯ КОЛОНКА ============ -->
+<td class="side">
+  <div class="box">
+    <h3>:: МЕНЮ ::</h3>
+    <div class="nav">
+      <a class="btn" href="#home">Главная</a>
+      <a class="btn" href="#about">Обо мне</a>
+      <a class="btn" href="#skills">Что умею</a>
+      <a class="btn" href="#projects">Мои проекты</a>
+      <a class="btn" href="#links">Контакты</a>
+      <a class="btn" href="#guestbook">Гостевая книга</a>
+    </div>
+  </div>
+
+  <div class="box small center">
+    <h3>:: СЕГОДНЯ ::</h3>
+    <div id="today">...</div>
+    <div id="clock" class="counter" style="font-size:15px;margin-top:4px">00:00:00</div>
+  </div>
+
+  <div class="box small center">
+    <h3>:: МУЗЫКА ::</h3>
+    <button class="midi" id="midi" type="button">&#9835; MIDI: выкл</button>
+    <div style="margin-top:4px">(нажми, если хочешь звук)</div>
+  </div>
+</td>
+
+<!-- ============ ОСНОВНАЯ КОЛОНКА ============ -->
+<td class="main">
+
+  <div class="win" id="home">
+    <h2>Добро пожаловать!!!</h2>
+    <div class="in">
+      <p>Привет, путник! Ты зашёл на личную страничку <b class="hi">pxdx</b> (на GitHub я <b>pxdxx</b>).
+      Здесь ты найдёшь всё обо мне и о том, что я делаю. Устраивайся поудобнее, налей чаю и
+      листай вниз <span class="blink red">&darr;&darr;&darr;</span></p>
+      <p class="small">Лучше всего смотреть в <b>Netscape Navigator 4.0+</b> или <b>Internet Explorer 5.0</b>
+      при разрешении <b>800x600</b>, 256 цветов. Но и в современном браузере тоже сойдёт.</p>
+    </div>
+  </div>
+
+  <div class="win" id="about">
+    <h2>Обо мне</h2>
+    <div class="in">
+      <img class="avatar" src="https://github.com/pxdxx.png?size=240" width="120" height="120" alt="[аватарка pxdx]">
+      <p>Меня зовут <b class="hi">pxdx</b>. Делаю небольшие полезные штуки: утилиты,
+      расширения для <b>Chrome</b>, приложения на <b>Electron</b> и нативные программки
+      под <b>macOS</b> на <b>Swift</b>. Люблю автоматизацию, скрипты и когда всё работает с первого клика.</p>
+      <p>Эта страничка сделана вручную, как в добрые старые времена: таблицы, рамки, бегущая строка
+      и никаких фреймворков. Ну почти :)</p>
+
+      <table class="old" cellspacing="0" cellpadding="0">
+        <tr><th colspan="2">&gt;&gt; АНКЕТА &lt;&lt;</th></tr>
+        <tr><td width="35%"><b>Ник:</b></td><td>pxdx</td></tr>
+        <tr><td><b>GitHub:</b></td><td><a href="https://github.com/pxdxx">github.com/pxdxx</a></td></tr>
+        <tr><td><b>Telegram:</b></td><td><a href="https://t.me/pxdxz">@pxdxz</a></td></tr>
+        <tr><td><b>Настроение:</b></td><td>&#128541; <span class="small">(так написано в моём профиле)</span></td></tr>
+        <tr><td><b>Друзей на GitHub:</b></td><td>2 <span class="small">(привет вам, ребята!)</span></td></tr>
+        <tr><td><b>Занятие:</b></td><td>писать код, пилить утилиты, ломать и чинить</td></tr>
+      </table>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="win" id="skills">
+    <h2>Что умею</h2>
+    <div class="in">
+      <table class="old" cellspacing="0" cellpadding="0">
+        <tr><th width="34%">Раздел</th><th>Чем пользуюсь</th></tr>
+        <tr><td>Вёрстка</td><td>HTML, CSS, JavaScript</td></tr>
+        <tr><td>Нативные приложения</td><td>Swift (macOS)</td></tr>
+        <tr><td>Десктоп-приложения</td><td>Electron</td></tr>
+        <tr><td>Браузерные расширения</td><td>Chrome extensions</td></tr>
+        <tr><td>Скрипты и автоматизация</td><td>Python, Bash</td></tr>
+        <tr><td>Базы данных</td><td>PostgreSQL</td></tr>
+        <tr><td>Контроль версий</td><td>Git</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="win" id="projects">
+    <h2>Мои проекты</h2>
+    <div class="in">
+      <p class="small">Всё лежит на GitHub. Жми на название &mdash; попадёшь прямо в репозиторий.</p>
+      <table class="old" cellspacing="0" cellpadding="0">
+        <tr><th>Название</th><th width="72">Язык</th><th>Что это</th></tr>
+        <tr>
+          <td><a href="https://github.com/pxdxx/ZPRT-Connection-MAC-OS-Zapret-Discord">ZPRT-Connection-MAC-OS-Zapret-Discord</a> <span class="blink red">NEW!</span></td>
+          <td><span class="tag">Swift</span></td>
+          <td>Zapret Discord для macOS - обход блокировки Discord и YouTube. Приложение в DMG. Набрал 6 звёзд &#9733;</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/pxdxx/Clutch">Clutch</a></td>
+          <td><span class="tag">JS</span></td>
+          <td>Минималистичная утилита для скриншотов под Windows (Electron): иконка в трее, глобальные хоткеи,
+          мгновенное копирование PNG в буфер, встроенный редактор со стрелками, маркерами и рамками. Лицензия MIT.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="win" id="links">
+    <h2>Контакты и ссылки</h2>
+    <div class="in">
+      <p>Хочешь написать? Вот как меня найти:</p>
+      <ul>
+        <li>Telegram: <a href="https://t.me/pxdxz">@pxdxz</a></li>
+        <li>E-mail: <a href="mailto:rasputikovv@gmail.com">rasputikovv@gmail.com</a></li>
+        <li>GitHub: <a href="https://github.com/pxdxx">github.com/pxdxx</a></li>
+      </ul>
+      <p class="small">Отвечаю не сразу, я не всегда в сети. ICQ и мыло Mail.ru не проверяю.</p>
+    </div>
+  </div>
+
+  <div class="win" id="guestbook">
+    <h2>Гостевая книга</h2>
+    <div class="in">
+      <p>Был у меня в гостях? Оставь запись! Напиши, откуда ты и что думаешь о страничке.</p>
+      <p class="small">*ни робит:(*</p>
+      <form class="gb" id="gbform" autocomplete="off">
+        <label for="gbname">Твоё имя / ник:</label>
+        <input id="gbname" type="text" maxlength="30" required>
+        <label for="gbmsg">Сообщение:</label>
+        <textarea id="gbmsg" rows="4" maxlength="300" required></textarea>
+        <button type="submit">Отправить</button><button type="reset">Очистить</button>
+      </form>
+      <div id="entries">
+        <div class="entry">
+          <div><span class="who">Webmaster</span> <span class="when">&mdash; 19.04.2026</span></div>
+          <div class="txt">Добро пожаловать! Не стесняйся, пиши что хочешь :)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<div class="rainbow"></div>
+
+<div class="center">
+  <p>Ты <span class="blink red">&#9733;</span> посетитель номер:</p>
+  <div class="counter" id="counter">0001337</div>
+  <p style="margin-top:12px">
+    <a class="b88 b1" href="#" title="Сделано в Блокноте">MADE IN<br>NOTEPAD<em>no wysiwyg</em></a>
+    <a class="b88 b2" href="#" title="Netscape Now!">NETSCAPE<em>NOW! 4.08</em></a>
+    <a class="b88 b3" href="#" title="Оптимизировано под 800x600">BEST VIEWED<br>800 x 600</a>
+    <a class="b88 b4" href="#" title="HTML 3.2">HTML 3.2<em>valid (почти)</em></a>
+    <a class="b88 b5" href="#" title="Без Flash">NO FLASH<em>please</em></a>
+  </p>
+</div>
+
+<div class="foot">
+  <p>Последнее обновление: <b>19.09.2026</b><br>
+  &copy; 1999&ndash;2026 pxdx. Все права защищены :)<br>
+  <a href="#home">^ наверх ^</a></p>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function pad(n, l) { n = String(n); while (n.length < (l || 2)) n = "0" + n; return n; }
+  function stamp(d) {
+    return pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + d.getFullYear() + " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
+  }
+  function store(key, val) {
+    try {
+      if (val === undefined) return localStorage.getItem(key);
+      localStorage.setItem(key, val);
+    } catch (e) { return null; }
+  }
+
+  if (reduce && $("tick") && $("tick").stop) $("tick").stop();
+
+  /* --- дата и часы --- */
+  var days = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"];
+  function tick() {
+    var d = new Date();
+    $("today").textContent = pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + d.getFullYear() + ", " + days[d.getDay()];
+    $("clock").textContent = pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* --- счётчик посетителей (считает только тебя, зато честно) --- */
+  var hits = parseInt(store("pxdx_hits"), 10);
+  if (isNaN(hits)) hits = 1336;
+  var counted = false;
+  try { counted = sessionStorage.getItem("pxdx_counted") === "1"; } catch (e) {}
+  if (!counted) {
+    hits++;
+    store("pxdx_hits", String(hits));
+    try { sessionStorage.setItem("pxdx_counted", "1"); } catch (e) {}
+  }
+  var digits = pad(hits, 7).split("");
+  $("counter").innerHTML = "";
+  digits.forEach(function (ch) {
+    var s = document.createElement("span");
+    s.textContent = ch;
+    $("counter").appendChild(s);
+  });
+
+  /* --- гостевая книга --- */
+  function loadGB() {
+    try { return JSON.parse(store("pxdx_gb") || "[]"); } catch (e) { return []; }
+  }
+  function renderEntry(e) {
+    var box = document.createElement("div"); box.className = "entry";
+    var top = document.createElement("div");
+    var who = document.createElement("span"); who.className = "who"; who.textContent = e.name;
+    var when = document.createElement("span"); when.className = "when"; when.textContent = " — " + e.when;
+    var txt = document.createElement("div"); txt.className = "txt"; txt.textContent = e.msg;
+    top.appendChild(who); top.appendChild(when);
+    box.appendChild(top); box.appendChild(txt);
+    return box;
+  }
+  var entries = $("entries");
+  loadGB().forEach(function (e) { entries.insertBefore(renderEntry(e), entries.firstChild); });
+  $("gbform").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var e = { name: $("gbname").value.trim(), msg: $("gbmsg").value.trim(), when: stamp(new Date()) };
+    if (!e.name || !e.msg) return;
+    var all = loadGB(); all.push(e);
+    store("pxdx_gb", JSON.stringify(all.slice(-50)));
+    entries.insertBefore(renderEntry(e), entries.firstChild);
+    $("gbform").reset();
+    alert("Спасибо за запись в гостевой книге!");
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll("a.b88"), function (a) {
+    a.addEventListener("click", function (ev) { ev.preventDefault(); });
+  });
+
+  /* --- «MIDI» на квадратной волне --- */
+  var ac = null, timer = null, step = 0, on = false;
+  var lead = [523, 659, 784, 659, 587, 698, 880, 698, 523, 659, 784, 1047, 988, 784, 659, 587];
+  var bass = [131, 0, 196, 0, 147, 0, 220, 0, 131, 0, 196, 0, 175, 0, 196, 0];
+  function beep(freq, type, vol, len) {
+    if (!freq) return;
+    var o = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime;
+    o.type = type; o.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + len);
+    o.connect(g); g.connect(ac.destination);
+    o.start(t); o.stop(t + len + 0.02);
+  }
+  function play() {
+    beep(lead[step % 16], "square", 0.04, 0.16);
+    beep(bass[step % 16], "triangle", 0.09, 0.2);
+    step++;
+  }
+  $("midi").addEventListener("click", function () {
+    on = !on;
+    if (on) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) { on = false; alert("Твой браузер не умеет в звук :("); return; }
+      ac = ac || new AC();
+      if (ac.resume) ac.resume();
+      timer = setInterval(play, 190);
+    } else {
+      clearInterval(timer);
+    }
+    this.innerHTML = "&#9835; MIDI: " + (on ? "вкл" : "выкл");
+  });
+
+  /* --- искры за курсором --- */
+  var coarse = window.matchMedia && matchMedia("(pointer: coarse)").matches;
+  if (!reduce && !coarse) {
+    var last = 0, colors = ["#ffff00", "#ff66ff", "#66ffff", "#ffffff", "#ff9933"];
+    document.addEventListener("mousemove", function (e) {
+      var now = Date.now();
+      if (now - last < 45) return;
+      last = now;
+      var s = document.createElement("span");
+      s.className = "spark";
+      s.textContent = Math.random() < 0.5 ? "*" : "+";
+      s.style.left = (e.clientX + 6) + "px";
+      s.style.top = (e.clientY + 6) + "px";
+      s.style.color = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(s);
+      setTimeout(function () { if (s.parentNode) s.parentNode.removeChild(s); }, 800);
+    });
+  }
+})();
+</script>
+</body>
+</html>
